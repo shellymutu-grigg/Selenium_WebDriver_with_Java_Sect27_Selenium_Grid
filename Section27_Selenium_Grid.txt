@@ -1,0 +1,19 @@
+Section 27: Selenium Grid:
+
+ // Start the hub from the folder where the .jar file resides
+ ~/eclipse/drivers:  java -jar selenium-server-4.10.0.jar hub
+ 
+ http://localhost:4444/ui
+ 
+ - XPUB binding to [binding to tcp://*:4442, advertising as 
+ tcp://[fe80:0:0:0:cb1:7cfb:a1d7:4c20%en0]:4442], 
+ XSUB binding to [binding to tcp://*:4443, 
+ advertising as tcp://[fe80:0:0:0:cb1:7cfb:a1d7:4c20%en0]:4443]
+ 
+ // Start the nodes
+  ~/eclipse/drivers:  java -jar selenium-server-4.10.0.jar node --detect-drivers true
+
+
+// To register remote machines
+java -jar selenium-server-4.10.0.jar node --detect-drivers true --publish-events 
+tcp://192.168.1.19:4442 --subscribe-events tcp://192.168.1.19:4443
